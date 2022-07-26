@@ -6,9 +6,26 @@
 }
 
 #playingArea{
- width: 100%;
+    width: 100%;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 
+}
+
+#alphabetArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.alphabetButtons{
+ background-color: red;   
+}
+
+#guessDisplay{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
