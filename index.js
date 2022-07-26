@@ -1,20 +1,18 @@
-const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-
-
-let words = ['Banana'];
-let word = [];
-//total letters
-let tl = 0;
-let answer = [];
-let lives = 0;
+let words = ['Banana'];   //word bank to play with
+let word = [];    //split up word to check through
+let totalletters = 0; 
+let answer = [];  //array to place correct guesses in
+let lives = 0;  //this is assigned a more useful value later, done later so can try different difficulties (harder = less lives)
 
 
 let buttonA //= document.getElementById('button-A');
-
+buttonA.addEventListener('click',clickedA) //this and next line probably need to be at the bottom. as cannot listen for a element that has not yet been made
+function clickedA(){check('a')}
 
 function newGame(){
-  //generate
+  //generate buttons for inputting
   for (let i = 0; i< alphabet.length; i++){
   const newButton = document.createElement('button')
   const insert = document.getElementById('alphabetArea')
@@ -22,21 +20,21 @@ function newGame(){
   newButton.setAttribute('class','alphabetButtons')
   newButton.innerText=alphabet[i]
   insert.appendChild(newButton)  
-
-  //adjust this to change the buttonA each time
-    buttonA = document.getElementById('button-A');
+  //need to adjust this to change the buttonA each time
+  buttonA = document.getElementById('button-A');
   }
-  //randomly pick a word from words array
+
+  //randomly pick a word from words array - currently pointless as only one in array but will expand when up and running
+  //Assigns the number of letters to be found based on the array length
   word = words[Math.floor(Math.random() * words.length)]
   word = word.toUpperCase().split('');
-  tl = word.length;  
+  totalletters = word.length;  
   
- for (i = 0; i<tl; i++){
+  //setup display of word
+ for (i = 0; i<totalletters; i++){
   //generate answer array to length of word with '_'
   answer.push('_');
-    
-  //create front end for each array element at this stage 
-  // use name to identify this will create elementsbyName[n]
+//Create a <p> for each letter of the word chosen, 
   const letterDisplay = document.createElement('p')
   const insert = document.getElementById('guessDisplay')
   letterDisplay.setAttribute('name','displayChar')
@@ -44,45 +42,40 @@ function newGame(){
   letterDisplay.setAttribute('class','character')
   letterDisplay.innerText = answer[i]
   insert.appendChild(letterDisplay)
-
+  //set lives based on difficulty
   lives = 5;
  }
- 
- console.log(answer);
 }
-
-
+//code from Jordan
+function myClickHandler (e) {
+  console.log(e.target)
+}
 
 
 // Take input letter 
 // check against word string 
-// if letter present display on front end, decrease tl to work towards win, prevent letter being used again, assign to iTH position in display
+// if letter present display on front end, decrease totalletters to work towards win, prevent letter being used again, assign to iTH position in display
 // if not present decrease lives, display part of gallows prevent being used again 
 // if lives hits 0 lose
-//if tl = 0 win
+//if totalletters = 0 win
 function check (input){
   let j = 0;
-  console.log(input)
-  //call a function to check if already used this letter.
-  let inputCaps = input.toUpperCase()
+  //call a function to check if already used this letter - TO DO
+  let inputCaps = input.toUpperCase()  //transfer input to caps this would be better served by checking input against the array in matching case
   for (i = 0; i < word.length; i++){
     if (inputCaps == word[i]){
     //log correct guess into array
     answer[i] = inputCaps;
-    //adjust text of block-i
-
+    //adjust text of block-i to match guessed letter
       let updatedCharacter = document.getElementById('block-'+i)
       updatedCharacter.innerText = inputCaps;
     
-    tl -= 1;
-    j++;
-    console.log(answer)
-    if(tl == 0){
+      totalletters -= 1; //reduce characters needing to be found to win
+     j++; //confirm that we've found something this loop, otherwise will trigger a loss condition
+    if(totalletters == 0){
       //Do something when we win
       console.log('Winner')
     }
-    
-    
 } 
 }if(j == 0){
   lives--;
@@ -92,6 +85,7 @@ function check (input){
 }
 }
 
+
 newGame()
 // check('a')
 // check('b')
@@ -99,5 +93,3 @@ newGame()
 // check('n')
 
 
-buttonA.addEventListener('click',clickedA)
-function clickedA(){check('a')}
