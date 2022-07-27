@@ -85,6 +85,7 @@ canvas{
     .alphabetButtons{ border:0.25rem solid lightgray; background: darkblue; color: white;}
     #reset{ border:0.25rem solid lightgray; background: darkblue; color: white;}
   .character {color:white}
+
 }
   
   @media (prefers-color-scheme: light) {
