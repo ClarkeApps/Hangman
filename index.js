@@ -1,10 +1,12 @@
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-let words = ['It\'s Worked'];   //word bank to play with
+let words = ["Banana","Apple","peanuTs"];   //word bank to play with
 let word = [];    //split up word to check through
 let totalletters = 0; 
 let answer = [];  //array to place correct guesses in
 let lives = 0;  //this is assigned a more useful value later, done later so can try different difficulties (harder = less lives)
+const canvas = document.getElementById('gallows');
+const ctx = canvas.getContext('2d');
 
 
 function newGame(){
@@ -25,7 +27,7 @@ function newGame(){
   //Assigns the number of letters to be found based on the array length
   word = words[Math.floor(Math.random() * words.length)]
   word = word.toUpperCase().split('');
-  //totalletters = word.length;  
+    
   
   //setup display of word
  for (i = 0; i<word.length; i++){
@@ -48,7 +50,7 @@ totalletters++;}
   letterDisplay.innerText = answer[i]
   insert.appendChild(letterDisplay)
   //set lives based on difficulty
-  lives = 5;
+  lives = 10;
  }
 }
 
@@ -83,14 +85,19 @@ function check (input){
   lives--;
   if (lives == 0){
     console.log('You lose')
+    drawShape();
    //insert code to end game
   }
 }
 
 }
+function drawShape(){
+ctx.fillStyle = 'rgb(200, 0, 0)';
+ctx.fillRect(10, 10, 50, 50);
 
+ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+ctx.fillRect(30, 30, 50, 50);}
 
-newGame()
 // check('a')
 // check('b')
 // check('z')

@@ -13,7 +13,13 @@
     justify-content: center;
 
 }
-
+canvas{
+display: flex;
+flex-direction: row;
+justify-content: center;
+    border: 0.25rem groove;
+    margin: 0.25rem;
+}
 #alphabetArea{
     display: flex;
     flex-direction: row;
@@ -29,7 +35,7 @@
  font-size: 1.5rem;
 }
 .alphabetButtons:disabled{
-    background-color: red;
+    background-color: grey;
 }
 
 #guessDisplay{
