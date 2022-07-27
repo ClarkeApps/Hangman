@@ -1,16 +1,11 @@
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-let words = ['Worked'];   //word bank to play with
+let words = ['It\'s Worked'];   //word bank to play with
 let word = [];    //split up word to check through
 let totalletters = 0; 
 let answer = [];  //array to place correct guesses in
 let lives = 0;  //this is assigned a more useful value later, done later so can try different difficulties (harder = less lives)
 
-
-// let buttonA //= document.getElementById('button-A');
-// //*********************************************************
-// buttonA.addEventListener('click',clickedA) //this and next line probably need to be at the bottom. as cannot listen for a element that has not yet been made
-// function clicked(){check('a')}
 
 function newGame(){
   //generate buttons for inputting
@@ -23,21 +18,27 @@ function newGame(){
   newButton.addEventListener('click', (e) => {
     check(e.target.innerText);
   });
-  insert.appendChild(newButton)  
-  //need to adjust this to change the buttonA each time
-  buttonA = document.getElementById('button-A');
+  insert.appendChild(newButton);
   }
 
   //randomly pick a word from words array - currently pointless as only one in array but will expand when up and running
   //Assigns the number of letters to be found based on the array length
   word = words[Math.floor(Math.random() * words.length)]
   word = word.toUpperCase().split('');
-  totalletters = word.length;  
+  //totalletters = word.length;  
   
   //setup display of word
- for (i = 0; i<totalletters; i++){
+ for (i = 0; i<word.length; i++){
   //generate answer array to length of word with '_'
+  if(/^[A-Za-z]*$/.test(word[i])){
   answer.push('_');
+totalletters++;}
+  else if (word[i] === ' '){
+    answer.push('/');
+  }
+  else {
+    answer.push(word[i]);
+  }
 //Create a <p> for each letter of the word chosen, 
   const letterDisplay = document.createElement('p')
   const insert = document.getElementById('guessDisplay')
@@ -50,11 +51,6 @@ function newGame(){
   lives = 5;
  }
 }
-//code from Jordan
-function myClickHandler (e) {
-  console.log(e.target)
-}
-
 
 // Take input letter 
 // check against word string 
@@ -63,6 +59,8 @@ function myClickHandler (e) {
 // if lives hits 0 lose
 //if totalletters = 0 win
 function check (input){
+  document.getElementById('button-'+input).disabled = true;//disable button to avoid repeated clicks - needs to be reset via loop after game
+
   let j = 0;
   //call a function to check if already used this letter - TO DO
   let inputCaps = input.toUpperCase()  //transfer input to caps this would be better served by checking input against the array in matching case
@@ -85,8 +83,10 @@ function check (input){
   lives--;
   if (lives == 0){
     console.log('You lose')
+   //insert code to end game
   }
 }
+
 }
 
 
