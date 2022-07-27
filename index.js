@@ -9,7 +9,7 @@ let lives = 0;  //this is assigned a more useful value later, done later so can 
 const canvas = document.getElementById('gallows');
 const ctx = canvas.getContext('2d');
 let b = document.getElementById("wholescreen"); //making var for body
-b.addEventListener("keyup", (evt) => {//when this happens
+b.addEventListener("keypress", (evt) => {//when this happens
 	check(evt.key); //log keycode
 });
 
@@ -42,7 +42,8 @@ for (i = 0; i<word.length; i++){
   //generate answer array to length of word with '_'
   if(/^[A-Za-z]*$/.test(word[i])){
   answer.push('_');
-totalletters++;}
+totalletters++;
+console.log(totalletters)}
   else if (word[i] === ' '){
     answer.push('/');
   }
