@@ -1,15 +1,16 @@
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-let words = ['Banana'];   //word bank to play with
+let words = ['Worked'];   //word bank to play with
 let word = [];    //split up word to check through
 let totalletters = 0; 
 let answer = [];  //array to place correct guesses in
 let lives = 0;  //this is assigned a more useful value later, done later so can try different difficulties (harder = less lives)
 
 
-let buttonA //= document.getElementById('button-A');
-buttonA.addEventListener('click',clickedA) //this and next line probably need to be at the bottom. as cannot listen for a element that has not yet been made
-function clickedA(){check('a')}
+// let buttonA //= document.getElementById('button-A');
+// //*********************************************************
+// buttonA.addEventListener('click',clickedA) //this and next line probably need to be at the bottom. as cannot listen for a element that has not yet been made
+// function clicked(){check('a')}
 
 function newGame(){
   //generate buttons for inputting
@@ -19,6 +20,9 @@ function newGame(){
   newButton.setAttribute('id','button-'+alphabet[i])
   newButton.setAttribute('class','alphabetButtons')
   newButton.innerText=alphabet[i]
+  newButton.addEventListener('click', (e) => {
+    check(e.target.innerText);
+  });
   insert.appendChild(newButton)  
   //need to adjust this to change the buttonA each time
   buttonA = document.getElementById('button-A');
