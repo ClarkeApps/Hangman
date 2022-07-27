@@ -5,12 +5,24 @@
     justify-content: center;
 
 }
-
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: lightgray;
+}
+#utilityButtons{
+display:flex;
+flex-direction: row;
+justify-content: center;
+margin: 0.5rem;
+}
 #playingArea{
 
     display:flex;
     flex-direction: row;
     justify-content: center;
+    max-width: 1000px;
 
 }
 #input{
@@ -67,3 +79,14 @@ canvas{
     flex-direction: column;
 }
 }
+
+@media (prefers-color-scheme: dark) {
+    body  { background:  black; color: white; }
+    .alphabetButtons{ border:0.25rem solid lightgray; background: darkblue; color: white;}
+    #reset{ border:0.25rem solid lightgray; background: darkblue; color: white;}
+  .character {color:white}
+}
+  
+  @media (prefers-color-scheme: light) {
+    body  { background: white; color:  #555; }
+  }

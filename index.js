@@ -78,7 +78,7 @@ function firstSetup(){
   insert.appendChild(newButton);
   }
   const resetButton = document.createElement('button')
-  const insert = document.getElementById('alphabetArea')
+  const insert = document.getElementById('utilityButtons')
   resetButton.setAttribute('id','reset')
   resetButton.innerText='New Game'
   resetButton.addEventListener('click',(e)=>{
