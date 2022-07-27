@@ -14,11 +14,13 @@
 
 }
 canvas{
+
 display: flex;
 flex-direction: row;
 justify-content: center;
     border: 0.25rem groove;
     margin: 0.25rem;
+    
 }
 #alphabetArea{
     display: flex;
@@ -44,4 +46,14 @@ justify-content: center;
     justify-content: center;
     flex-wrap: wrap;
     border: solid black 0.25rem;
+    margin-bottom: 0.25rem;
+
+}
+#reset{
+    background-color: lightseagreen;
+    border:0.25rem solid black;
+    margin: 0.05rem;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.5rem;
 }
