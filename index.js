@@ -1,15 +1,15 @@
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
 let words = ["apple", "orange", "pear", "Mango", "dragonfruit"]; //word bank to play with
 let word = []; //split up word to check through
 let answer = []; //array to place correct guesses in
 let usedLetters = [];
 let isRunning = true;
-
+let svgGallows = document.getElementById('gallowsV').innerHTML;
 let totalLetters = 0;
 let lives = 0; //this is assigned a more useful value later, done later so can try different difficulties (harder = less lives)
 
-const canvas = document.getElementById('gallows');
-const ctx = canvas.getContext('2d');
+
 let b = document.getElementById("wholescreen"); //making var for body
 b.addEventListener("keypress", (evt) => { //when this happens
     check(evt.key); //log keycode
@@ -47,10 +47,12 @@ function firstSetup() {
 function reset() {
     //reset scores buttons and variables
     isRunning = true;
+    document.getElementById('gallowsV').innerHTML = '' ;
     totalLetters = 0;
     lives = 9;
     word.length = 0;
     answer.length = 0;
+    document.getElementById('lives').innerText = ''
     usedLetters.length = 0;
     let element = document.getElementById("guessDisplay");
     while (element.firstChild) {
@@ -60,8 +62,7 @@ function reset() {
         document.getElementById('button-' + alphabet[i]).disabled = false;
     }
     //clear the canvas
-    const context = canvas.getContext('2d');
-    context.clearRect(0, 0, canvas.width, canvas.height);
+document.getElementById('gallowsV').innerHTML = '';
 
 newWord();
 
@@ -126,13 +127,7 @@ function check(input) {
                 j++; //confirm that we've found something this loop, otherwise will trigger a loss condition
                 if (totalLetters == 0) {
                     //Do something when we win
-                    ctx.font = "25px Verdana";
-                    let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-                    gradient.addColorStop("0", "magenta");
-                    gradient.addColorStop("0.5", "green");
-                    gradient.addColorStop("1", "yellow");
-                    ctx.fillStyle = gradient;
-                    ctx.fillText("You Win!", 160, 90)
+                    document.getElementById('lives').innerText = 'You Win!'
                     playWin()
                     isRunning = false;
                 }
@@ -145,7 +140,7 @@ function check(input) {
         } else if (lives == 1){
                 document.getElementById('lives').innerText = lives + ' life left'
             }
-            else {document.getElementById('lives').innerText = ''}
+            else {document.getElementById('lives').innerText = 'You Lose!'}
             playInvalid()
             drawShape(lives) //adds part of the gallows
             if (lives == 0) { //if lost display full word
@@ -165,63 +160,47 @@ function check(input) {
     }
 }
 }
+
+function drawLine(input){
+    console.log(typeof input)
+    document.getElementById('gallowsV').innerHTML += input;
+}
 function drawShape(livesLeft) {
 
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = 'rgb(0,0,200,0.5)'
     switch (livesLeft) {
         case 8:
-            //Part 1
-            ctx.beginPath();
-            ctx.moveTo(140, 140);
-            ctx.lineTo(50, 140);
-            ctx.stroke();
+            drawLine('<line x1="25%" y1="95%" x2="75%" y2="95%"/>')
             break;
         case 7:
-            ctx.lineTo(50, 10)
-            ctx.stroke();
+            drawLine('<line x1="25%" y1="95%" x2="25%" y2="5%"/>')
+
             break;
         case 6:
-            ctx.lineTo(70, 10)
-            ctx.lineTo(50, 30)
-            ctx.stroke()
-            ctx.lineTo(50, 10)
+            drawLine('<line x1="25%" y1="5%" x2="65%" y2="5%"/>')
+                        
             break;
         case 5:
-            ctx.lineTo(140, 10)
-            ctx.stroke();
+            drawLine('<line x1="35%" y1="5%"" x2="25%"" y2="20%"/>')
+            
             break;
         case 4:
-            ctx.lineTo(140, 30)
-            ctx.stroke()
+            drawLine('<line x1="65%" y1="5%" x2="65%" y2="20%"/>')
+            
             break;
         case 3:
-            ctx.arc(140, 40, 10, -1, 2 * Math.PI);
-            ctx.stroke();
+            drawLine('<circle cx="65%" cy="25%" r="5%"/>')
+            
             break;
         case 2:
-            ctx.moveTo(140, 50);
-            ctx.lineTo(140, 90);
-            ctx.stroke();
+drawLine('<line x1="65%" y1="30%" x2="65%" y2="70%"/>')
+
             break;
         case 1:
-            ctx.lineTo(130, 110)
-            ctx.stroke()
-            ctx.moveTo(140, 90)
-            ctx.lineTo(150, 110)
-            ctx.stroke()
+            drawLine('<line x1="55%" y1="40%" x2="75%" y2="40%"/>')
+            
             break;
         case 0:
-            ctx.moveTo(120, 65)
-            ctx.lineTo(160, 65)
-            ctx.stroke()
-            ctx.font = "2rem Calibri";
-            let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-            gradient.addColorStop("0", "magenta");
-            gradient.addColorStop("0.5", "red");
-            gradient.addColorStop("1", "yellow");
-            ctx.fillStyle = gradient;
-            ctx.fillText("You Lose!", 160, 90)
+            drawLine('<line x1="65%" y1="68%" x2="70%" y2="85%"/><line x1="65%" y1="68%" x2="60%" y2="85%"/>')
             playLose()
             isRunning = false;
             break;
@@ -253,3 +232,4 @@ function playLose(){
 document.body.appendChild(audioLose);
 audioLose.play();
 }
+

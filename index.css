@@ -6,6 +6,7 @@
 
 }
 body{
+    max-width: 900;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -24,7 +25,20 @@ margin: 0.5rem;
     flex-direction: row;
     justify-content: center;
     max-width: 1000px;
+    margin: 5px;
 }
+#gallowsV{
+    background-color: papayawhip;
+    width: 100%;
+    min-width: 300px;
+    min-height: 300px;
+    max-height: 800px;
+    stroke: brown;
+    fill: brown;
+    stroke-width: 10;
+    border: 5px solid brown;
+}
+
 
 #lives{
     display: flex;
@@ -32,27 +46,20 @@ margin: 0.5rem;
     font-family: "Papyrus", Fantasy;
     font-size: 1.5rem;
   justify-content: center;
-  
-
-}
+ }
+ 
 #input{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-canvas{
-    border: 0.25rem groove;
-    margin: 0.25rem;
-    min-width: 95%;
-    min-height: 80%;
-    max-width: 95%;
-    max-height: 80%;
-}
+
 #alphabetArea{
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 5px;
 }
 .alphabetButtons{
 
@@ -74,6 +81,7 @@ canvas{
     justify-content: center;
     flex-wrap: wrap;
     border: solid black 0.25rem;
+    margin-left: 0.5rem;
     margin-bottom: 0.25rem;
 
 }
@@ -85,8 +93,6 @@ canvas{
     width: 10rem;
     font-size: 1.5rem;
 }
-
-
 
 @media screen and (max-width: 800px){
 #playingArea{
