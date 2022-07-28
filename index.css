@@ -25,6 +25,10 @@ margin: 0.5rem;
     max-width: 1000px;
 
 }
+#lives{
+    height: 4rem;
+
+}
 #input{
     display: flex;
     flex-direction: column;
@@ -33,7 +37,10 @@ margin: 0.5rem;
 canvas{
     border: 0.25rem groove;
     margin: 0.25rem;
-    
+    min-width: 95%;
+    min-height: 90%;
+    max-width: 95%;
+    max-height: 90%;
 }
 #alphabetArea{
     display: flex;
@@ -48,11 +55,15 @@ canvas{
  height: 3rem;
  width: 3rem;
  font-size: 1.5rem;
+ align-content: center;
 }
 .alphabetButtons:disabled{
     background-color: grey;
 }
-
+#gallows, #lives, #livesDisplay{
+    margin: 0px;
+    padding: 0px;
+    }
 #guessDisplay{
     display: flex;
     flex-direction: row;
@@ -84,10 +95,12 @@ canvas{
     body  { background:  black; color: white; }
     .alphabetButtons{ border:0.25rem solid lightgray; background: darkblue; color: white;}
     #reset{ border:0.25rem solid lightgray; background: darkblue; color: white;}
-  .character {color:white}
+    .character {color:white}
+    #livesDisplay{color:white}
 
 }
   
   @media (prefers-color-scheme: light) {
     body  { background: white; color:  #555; }
+    
   }
