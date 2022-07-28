@@ -26,7 +26,12 @@ margin: 0.5rem;
 
 }
 #lives{
+    display: flex;
+    flex-direction: row;
     height: 4rem;
+    font-size: 2rem;
+  justify-content: center;
+  
 
 }
 #input{
@@ -60,10 +65,7 @@ canvas{
 .alphabetButtons:disabled{
     background-color: grey;
 }
-#gallows, #lives, #livesDisplay{
-    margin: 0px;
-    padding: 0px;
-    }
+
 #guessDisplay{
     display: flex;
     flex-direction: row;
@@ -85,8 +87,12 @@ canvas{
 
 
 @media screen and (max-width: 800px){
-
 #playingArea{
+ display:flex;
+    flex-direction: column;
+}
+body{
+    display:flex;
     flex-direction: column;
 }
 }
