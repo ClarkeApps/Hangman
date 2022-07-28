@@ -1,6 +1,6 @@
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-let words = ["apple", "orange", "pear", "Mango", "dragonfruit"]; //word bank to play with
+let words = ["Aberdeen","Armagh","Bangor","Bath","Belfast","Birmingham","Bradford","Brighton & Hove","Bristol","Cambridge","Canterbury","Cardiff","Carlisle","Chelmsford","Chester","Chichester","Coventry","Derby","Derry","Doncaster","Dundee","Durham","Edinburgh","Ely","Exeter","Glasgow","Gloucester","Hereford","Inverness","Kingston upon Hull","Lancaster","Leeds","Leicester","Lichfield","Lincoln","Lisburn","Liverpool","London","Manchester","Newcastle upon Tyne","Newport","Newry","Norwich","Nottingham","Oxford","Perth","Peterborough","Plymouth","Portsmouth","Preston","Ripon","St Albans","St Asaph","St Davids","Salford","Salisbury","Sheffield","Southampton","Stirling","Stoke-on-Trent","Sunderland","Swansea","Truro","Wakefield","Wells","Westminster","Winchester","Wolverhampton","Worcester","York"]; //word bank to play with
 let word = []; //split up word to check through
 let answer = []; //array to place correct guesses in
 let usedLetters = [];
@@ -169,8 +169,9 @@ function drawShape(livesLeft) {
 
     switch (livesLeft) {
         case 8:
-        drawLine('<path class="hang" d="M 0 0 L 100 100"/>')
-            //drawLine('<line x1="25%" y1="95%" x2="75%" y2="95%"/>')
+            // animation
+        // drawLine('<path class="hang" d="M 350 500 L 150 500"/>')
+            drawLine('<line x1="25%" y1="95%" x2="75%" y2="95%"/>')
             break;
         case 7:
             drawLine('<line x1="25%" y1="95%" x2="25%" y2="5%"/>')
