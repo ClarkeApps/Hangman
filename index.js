@@ -169,7 +169,8 @@ function drawShape(livesLeft) {
 
     switch (livesLeft) {
         case 8:
-            drawLine('<line x1="25%" y1="95%" x2="75%" y2="95%"/>')
+        drawLine('<path class="hang" d="M 0 0 L 100 100"/>')
+            //drawLine('<line x1="25%" y1="95%" x2="75%" y2="95%"/>')
             break;
         case 7:
             drawLine('<line x1="25%" y1="95%" x2="25%" y2="5%"/>')

@@ -131,6 +131,9 @@ body{
 #gallowsV{
     max-height: 180px;
 }
+#gameelements{
+    flex-direction: column;
+}
 }
 
 @media (prefers-color-scheme: dark) {
