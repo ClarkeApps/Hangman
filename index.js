@@ -141,11 +141,11 @@ function check(input) {
         if (j == 0) {
             lives--;
             if(lives > 1){
-            document.getElementById('livesDisplay').innerText = lives + ' lives left'
+            document.getElementById('lives').innerText = lives + ' lives left'
         } else if (lives == 1){
-                document.getElementById('livesDisplay').innerText = lives + ' life left'
+                document.getElementById('lives').innerText = lives + ' life left'
             }
-            else {document.getElementById('livesDisplay').innerText = ''}
+            else {document.getElementById('lives').innerText = ''}
             playInvalid()
             drawShape(lives) //adds part of the gallows
             if (lives == 0) { //if lost display full word
