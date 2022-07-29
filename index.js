@@ -97,14 +97,14 @@ function newWord(){
       //randomly pick a word from words array - currently pointless as only one in array but will expand when up and running
     //Assigns the number of letters to be found based on the array length
     if (category === 'Category: UK Towns'){
-        word = words[Math.floor(Math.random() * words.length)]
+        word = words[Math.floor(Math.random() * Math.random() * words.length)]
         word = word.toUpperCase().split('');
     }else if (category === 'Category: HTML Colours'){
-    word = wordsColours[Math.floor(Math.random() * wordsColours.length)]
+    word = wordsColours[Math.floor(Math.random() * Math.random() * words.length)]
     document.getElementById('guessDisplay').style.borderColor = word;
     word = word.toUpperCase().split('');}
     else {
-        word = wordsCountries[Math.floor(Math.random() * wordsCountries.length)]
+        word = wordsCountries[Math.floor(Math.random() * Math.random() * words.length)]
         word = word.toUpperCase().split('');}
         //push to array
         for (i = 0; i < word.length; i++) {
