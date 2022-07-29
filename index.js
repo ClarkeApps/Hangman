@@ -121,19 +121,23 @@ function check(input) {
                 //adjust text of block-i to match guessed letter
                 let updatedCharacter = document.getElementById('block-' + i)
                 updatedCharacter.innerText = inputCaps;
-                playconf()
+                // playconf()
 
                 totalLetters -= 1; //reduce characters needing to be found to win
                 j++; //confirm that we've found something this loop, otherwise will trigger a loss condition
-                if (totalLetters == 0) {
-                    //Do something when we win
-                    document.getElementById('lives').innerText = 'You Win!'
-                    playWin()
-                    isRunning = false;
-                }
+
             }
         }
-        if (j == 0) {
+        if(j >0) {
+            playconf()
+            if (totalLetters == 0) {
+                //Do something when we win
+                document.getElementById('lives').innerText = 'You Win!'
+                playWin()
+                isRunning = false;
+            }
+        }
+        else if (j == 0) {
             lives--;
             if(lives > 1){
             document.getElementById('lives').innerText = lives + ' lives left'
