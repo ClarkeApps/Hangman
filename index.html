@@ -12,7 +12,22 @@
 </head>
 
 <body id='wholescreen' onload="firstSetup()">     
-    <div id="Hangman"><h1>UK Cities Hangman</h1></div>
+    <div class="navbar">
+  <a href="#" onclick="reset()">New Game</a>
+  <a href="#" onclick="toggleMute()" id="muteButton">Mute</a>
+  <div class="dropdown">
+  <button class="dropbtn" onclick="dropDownCategory()">Change Category
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <!-- Could adjust to generate via JS based on an array if time allows -->
+  <div class="dropdown-content" id="myDropdown">
+    <a href="#" onclick="catTowns()">Towns and Cities</a>
+    <a href="#" onclick="catCountries()">Countries</a>
+    <a href="#" onclick="catColour()">HTML Colour Names</a>
+  </div>
+  </div> 
+</div>
+    <div id="Hangman"><h1>Hangman</h1></div>
     <div id="gameelements">
     <div id="playingArea">
         <div id="GUI">
