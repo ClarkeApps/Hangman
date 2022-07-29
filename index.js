@@ -16,6 +16,9 @@ let lives = 0; //this is assigned a more useful value later, done later so can t
 
 let b = document.getElementById("wholescreen"); //making var for body
 b.addEventListener("keypress", (evt) => { //when this happens
+    if ((isRunning=== false) && (evt.key === "Enter" || evt.keyCode === 32)){
+        reset();
+    }
     check(evt.key); //log keycode
 });
 
