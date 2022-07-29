@@ -1,6 +1,6 @@
 body{
     min-width: 400px;
-    max-width: 1920px;
+    /* max-width: 1920px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +15,7 @@ justify-content: center;
 
 }
 
-/* //animation */
+/* //animation
 .hang{
     fill: none;
     stroke: purple;
@@ -30,17 +30,24 @@ justify-content: center;
     100% {
         stroke-dashoffset: -200;
     }
-}
-h1{
+} */
+#mainHeader{
     font-size: 3rem;
     margin: 0.5rem;
     color: brown;
     text-shadow: 5px 5px 5px orange;
     text-decoration: underline ;
 }
+#alerts{
+  font-size: 2rem;
+  margin: 0.5rem;
+  /* text-shadow: 2px 2px 5px lightyellow; */
+  /* text-decoration: underline ; */
+}
 #gameelements{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 #playingArea{
 
@@ -73,6 +80,7 @@ h1{
 #utilityButtons{
 display:flex;
 flex-direction: row;
+text-align: center;
 justify-content: center;
 margin: 0.5rem;
 }
@@ -132,7 +140,7 @@ margin: 0.5rem;
     border:0.25rem solid black;
     margin: 0.05rem;
     height: 3rem;
-    width: 10rem;
+    width: 15rem;
     font-size: 1.5rem;
 }
 
@@ -170,7 +178,7 @@ margin: 0.5rem;
   }
   
   .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-    background-color: red;
+    background-color: rgb(0, 162, 255);
   }
   
   .dropdown-content {
@@ -199,6 +207,28 @@ margin: 0.5rem;
     display: block;
   }
 @media screen and (max-width: 600px){
+
+  .alphabetButtons{
+
+    
+    border:0.16rem solid black;
+    margin: 0.05rem;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1rem;
+  
+   }
+
+#lives{
+  color:font-size:1rem;
+}
+  .character{
+    display: flex;
+    font-size: 1.5rem;
+    width:1.5rem;
+    justify-content: center;
+
+}
 #playingArea{
  display:flex;
     flex-direction: column;
@@ -220,8 +250,8 @@ body{
     .alphabetButtons{ border:0.25rem solid lightgray; background: darkblue; color: white;}
     #reset{ border:0.25rem solid lightgray; background: darkblue; color: white;}
     .character {color:white}
-    #livesDisplay{color:white}
-    h1{color: orange;  text-shadow: 5px 5px 5px brown;
+    #livesDisplay{color:white;}
+    #mainHeader{color: orange;  text-shadow: 5px 5px 5px brown;
     }
 
 }

@@ -12,7 +12,7 @@
 </head>
 
 <body id='wholescreen' onload="firstSetup()">     
-    <div class="navbar">
+   <div class="navbar">
   <a href="#" onclick="reset()">New Game</a>
   <a href="#" onclick="toggleMute()" id="muteButton">Mute</a>
   <div class="dropdown">
@@ -27,7 +27,7 @@
   </div>
   </div> 
 </div>
-    <div id="Hangman"><h1>Hangman</h1></div>
+    <div id="Hangman"><h1 id="mainHeader">Hangman</h1></div>
     <div id="gameelements">
     <div id="playingArea">
         <div id="GUI">
@@ -37,7 +37,7 @@
         <div id="input">
         <div id="guessDisplay"></div>    
         <div id="alphabetArea"></div>
-        <div id="utilityButtons"></div>
+        <div id="utilityButtons"><h2 id="alerts"></h1></div>
     </div>
 </div>
 </body>
