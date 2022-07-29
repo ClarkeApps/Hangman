@@ -20,11 +20,13 @@ b.addEventListener("keypress", (evt) => { //when this happens
 });
 
 function catTowns(){
+
     category='Category: UK Towns';
     document.getElementById('lives').innerText = 'Category: UK Towns'
     //reset();
 }
 function catCountries(){
+
     category='Category: Countries';
     document.getElementById('lives').innerText = 'Category: Countries'
     reset();
@@ -90,6 +92,7 @@ function newWord(){
         word = word.toUpperCase().split('');
     }else if (category === 'Category: HTML Colours'){
     word = wordsColours[Math.floor(Math.random() * wordsColours.length)]
+    document.getElementById('guessDisplay').style.borderColor = word;
     word = word.toUpperCase().split('');}
     else {
         word = wordsCountries[Math.floor(Math.random() * wordsCountries.length)]
