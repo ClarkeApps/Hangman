@@ -23,7 +23,7 @@ function catTowns(){
 
     category='Category: UK Towns';
     document.getElementById('lives').innerText = 'Category: UK Towns'
-    //reset();
+    reset();
 }
 function catCountries(){
 
@@ -37,7 +37,8 @@ function catColour(){
     reset();
 }
 function firstSetup() {
-    catTowns();
+    category='Category: UK Towns';
+    document.getElementById('lives').innerText = 'Category: UK Towns'
     isRunning = true;
     //generate buttons for inputting
     for (let i = 0; i < alphabet.length; i++) {
@@ -51,14 +52,15 @@ function firstSetup() {
         });
         insert.appendChild(newButton);
     }
-    const resetButton = document.createElement('button')
-    const insert = document.getElementById('utilityButtons')
-    resetButton.setAttribute('id', 'reset')
-    resetButton.innerText = 'New Game'
-    resetButton.addEventListener('click', (e) => {
-        reset()
-    });
-    insert.appendChild(resetButton)
+    //Withdrawn code due to titlebar Update
+    // const resetButton = document.createElement('button')
+    // const insert = document.getElementById('utilityButtons')
+    // resetButton.setAttribute('id', 'reset')
+    // resetButton.innerText = 'New Game'
+    // resetButton.addEventListener('click', (e) => {
+    //     reset()
+    // });
+    // insert.appendChild(resetButton)
     newWord();
 }
 function reset() {
@@ -154,7 +156,7 @@ function check(input) {
             }
         }
         if(j >0) {
-            playconf()
+            playInvalid()
             if (totalLetters == 0) {
                 //Do something when we win
                 document.getElementById('lives').innerText = 'You Win!'
